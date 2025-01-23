@@ -17,7 +17,7 @@ void dht_init(void)
 int8_t dht_await_state(uint8_t state)
  {
 	 uint8_t counter = 0;
-	 while ((DHT_PIN_READ() != state) && (++counter < DHT_TIMEOUT)) { _delay_us(1); };
+	 while (!(DHT_PIN_READ() == state) && (++counter < DHT_TIMEOUT)) { _delay_us(1); };
 	 return counter;
  }
  
